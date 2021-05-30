@@ -111,7 +111,9 @@ def main():
             elif passwordoption == "2":
                 password1 = random.randint(10000, 90000)
                 User.saveUser(username, password1)
-            print(f"Account created successfully with user {username} and password is {password1}.")
+            print(f"Account created successfully with user {username}.\n")
+            print("Password is ")
+            print(password1)
                 # break
             
         else:
@@ -127,7 +129,7 @@ def main():
         login_password = input()
         print(User.users)
         for credential in User.users:
-            if credential.username == login_username and credential.password == login_password:
+            if credential[0] == login_username and credential[1] == int(login_password):
                 prompt_selection = input("Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.")
                             
                 if prompt_selection == "1":
