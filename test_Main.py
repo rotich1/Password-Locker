@@ -32,13 +32,17 @@ class test_user_input(unittest.TestCase):
         User.users = []
 
     def test_multiple_users(self):
+        """
+        This method will test for for users saved
+        """
         self.user = User("enochrotich27@gmail.com", "1234", "1234")
         self.user.saveUser()
         self.assertEqual(len(User.users), 1)
         
-    def test_createUser(self):
-        self.user = User("enochrotich27@gmail.com", "1234", "1234") #New user
-        self.assertEqual(self.user.email, "enochrotich27@gmail.com")
+    def test_displayUsers(self):
+        self.user = User("enochrotich27@gmail.com", "1234", "1234")
+        self.user.saveUser()
+        self.assertEqual(len(User.users), 1)
 
 
 if __name__ == '__main__':

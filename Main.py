@@ -10,7 +10,7 @@ class User:
         
     users = []
 
-    def createUser(email, password, confirmPassword):
+    def createUser(self, email, password, confirmPassword):
         """
         This method creates a new user
         """
@@ -30,8 +30,9 @@ class User:
         print("Login successful")
         
     @classmethod
-    def displayUsers(display):
-        return display.users
+    def displayUsers(self):
+        for user in self.users:
+            return user
         
     
     @classmethod
@@ -96,26 +97,28 @@ def main():
             if passwordoption == "1":                
                 password = input("Enter password: \n")
                 
-                confirm_password = input("Confirm password: \n")
+                confirmPassword = input("Confirm password: \n")
                 
-                if password == confirm_password:
-                    print("Welcome to password locker. Login")
-                    print("Enter your username: \n")
-                    login_username = input()
-                    print("\n")
+            if password == confirmPassword:
+                print("Welcome to password locker. Login")
+                User.createUser(username,password,confirmPassword)
+                User.saveUser()
+                print(f"Account created successfully with {username} as username")
+                print("\n")
+                print("Enter your username: \n")
 
-                    print("Enter your password: \n")
-                    login_password = input()
-                    User.loginMessage()
+                print("Enter your password: \n")
+                login_password = input()
+                User.loginMessage()
 
-                    if Credentials in Credentials.credentials:
-                        for credential in Credentials.credentials:
-                            if credential.username != login_username or credential.password != login_password:
-                                prompt_selection = input(
-                                    "Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.")
-                            else:
-                                print("Incorrect username or password")
-                                break
+                if Credentials in Credentials.credentials:
+                    for credential in Credentials.credentials:
+                        if credential.username != login_username or credential.password != login_password:
+                            prompt_selection = input(
+                                "Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.")
+                        else:
+                            print("Incorrect username or password")
+                            break
                     
                         if prompt_selection == "1":
                             for user in User.users:
@@ -142,7 +145,7 @@ def main():
 
                     break
                 
-                elif password!=confirm_password:
+                elif password!=confirmPassword:
                     print("Passwords does not match")
                 print("*"*50)
                     
@@ -153,8 +156,9 @@ def main():
             else:
                 print("Invalid input")
                 
-            createUser = User.createUser(username, password, 0)
+            createUser = User.createUser(username, password, confirmPassword)
             User.saveUser(createUser)
+            print(User.saveUser())
             print(f"Account created successfully with user {username}")
             # print("*")*50
             print("Welcome to password locker. Login")
@@ -167,7 +171,7 @@ def main():
             
             if Credentials in Credentials.credentials:
                 for credential in Credentials.credentials:
-                    if credential.username == login_username and credential.password == login_password:
+                    if credential.username == login_username:
                         prompt_selection = input("Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.")
                     else:
                         print("Incorrect username or password")
@@ -197,4 +201,4 @@ def main():
        
         
 
-main()
+# main()
