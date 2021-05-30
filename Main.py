@@ -151,7 +151,7 @@ def main():
                 Credentials.save_credentials(newAccount, newPassword)
             
             elif prompt_selection == "3":
-                pass
+                Credentials.display_credentials(Credentials.credentials)
             
             elif prompt_selection == "4":
                 pass
