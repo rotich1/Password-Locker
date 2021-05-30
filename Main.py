@@ -95,7 +95,7 @@ def main():
     while True:    
         print("*"*50)
         options = input("Hey there, what's  your name? ")
-        login_options = input(f"How can I help you {options}. Kindly select option using the following short codes:\n cc - Create account.\n lg - Login\n")
+        login_options = input(f"How can I help you {options}. Kindly select option using the following short codes:\n cc - Create account.\n lg - Login\n ex - Exit\n")
         print("*"*50)
         if login_options == 'cc':
             username = input("Enter username / email address: \n")
@@ -166,6 +166,9 @@ def main():
                 else:
                     print("Incorrect username or password")
                     break
+        elif login_options == "ex":
+            print("Bye for now. See you again")
+            break
         
 if __name__ == '__main__':
     main()

@@ -36,13 +36,21 @@ class test_user_input(unittest.TestCase):
         This method will test for for users saved
         """
         self.user = User("enochrotich27@gmail.com", "1234", "1234")
-        self.user.saveUser()
+        self.user.saveUser(self.user.password)
         self.assertEqual(len(User.users), 1)
         
     def test_displayUsers(self):
         self.user = User("enochrotich27@gmail.com", "1234", "1234")
-        self.user.saveUser()
+        self.user.saveUser(self.user.password)
         self.assertEqual(len(User.users), 1)
+        
+    def test_deleteUsers(self):
+        """
+        This method will test for for delete users
+        """
+        self.user = User("enochrotich27@gmail.com", "1234", "1234")
+        self.user.deleteUsers()
+        self.assertEqual(len(User.users), 0)
 
 
 if __name__ == '__main__':
