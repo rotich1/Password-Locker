@@ -123,6 +123,22 @@ def main():
             print("Password is ")
             print(password1)
                 # break
+         
+        elif login_options == 'lg':
+            print("Enter username: \n")
+            user = input()
+             
+            print("Enter password: \n")
+            password = input()
+             
+            user = [f"{user}, {password}"]
+             
+            for credential in Credentials.credentials:
+                if credential == user:
+                    print("Logged in successfully!")
+                else:
+                    print("Incorrect username of password")
+                
             
         else:
             print("Invalid input")
@@ -138,7 +154,7 @@ def main():
         print(User.users)
         for credential in User.users:
             if credential[0] == login_username and credential[1] == int(login_password):
-                prompt_selection = input("Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.")
+                prompt_selection = input("Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.\n 5. Exit")
                             
                 if prompt_selection == "1":
                     for user in User.users:
@@ -160,6 +176,10 @@ def main():
                     accountName = input("Enter username of the credential to delete: \n")
                     Credentials.deleteCredential(accountName)
                     print(f"Credential with username {accountName} deleted successfully")
+                    
+                elif prompt_selection == "5":
+                    print("Exiting application")
+                    break
                 
                 else:
                     print("Invalid selection")
