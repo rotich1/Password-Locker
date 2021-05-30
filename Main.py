@@ -120,7 +120,8 @@ def main():
         User.saveUser(createUser)
         print(f"Account created successfully with user {username}")
         print("*"*50)
-        print("Login with your credentiials: \nEnter your username: \n")
+        print("Welcome to password locker. Login")
+        print("Enter your username: \n")
         login_username = input()
         print("\n")
         
@@ -136,10 +137,18 @@ def main():
                     break
                     
             if prompt_selection == "1":
-                pass
+                for user in User.users:
+                    Credentials.save_credentials(username, password)
+                print(f"Your credentials {user} have been save successfully.")
             
             elif prompt_selection == "2":
-                pass
+                print = ("Enter your username: \n")
+                newAccount = input()
+                
+                print=("Enter your password: \n")
+                newPassword = input()
+                Credentials.createNewCredentials(newAccount, newPassword)
+                Credentials.save_credentials(newAccount, newPassword)
             
             elif prompt_selection == "3":
                 pass
