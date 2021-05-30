@@ -33,7 +33,7 @@ class User:
     @classmethod
     def displayUsers(self):
         for user in self.users:
-            return user
+            print(user)
         
     
     @classmethod
@@ -65,9 +65,9 @@ class Credentials:
         """
         Credentials.credentials.append(self)
         
-    def display_credentials(self,credentials):
-        for credential in credentials:
-            print(credential.username+" - "+credential.password)   
+    def display_credentials(self):
+        for credential in Credentials.credentials:
+            print(credential)   
     
     def check_existance(self, email):
         """
@@ -93,10 +93,10 @@ class Credentials:
    
 def main():
     while True:    
-        # print("*"*50)
+        print("*"*50)
         options = input("Hey there, what's  your name? ")
-        login_options = input(f"How can I help you {options}. Kindly select option using the following short codes:\n cc - Create account.\n lg - Login")
-        # print("*"*50)
+        login_options = input(f"How can I help you {options}. Kindly select option using the following short codes:\n cc - Create account.\n lg - Login\n")
+        print("*"*50)
         if login_options == 'cc':
             username = input("Enter username / email address: \n")
             
@@ -113,41 +113,18 @@ def main():
                     User.createUser(username,password,confirmPassword)
                     User.saveUser(username, password)
                     print(f"Account created successfully with {username} as username")
-                    return True
-                    print("\n")
                                                    
                                     
             elif passwordoption == "2":
-                password1 = random.randint(10000, 90000)
-                User.saveUser(username, password1)
+                password = random.randint(10000, 90000)
+                User.saveUser(username, password)
+                
             print(f"Account created successfully with user {username}.\n")
             print("Password is ")
-            print(password1)
+            print(password)
                 # break
          
         elif login_options == 'lg':
-            print("Enter username: \n")
-            user = input()
-             
-            print("Enter password: \n")
-            password = input()
-             
-            newuser = [f"{user}, {password}"]
-             
-            for user in User.users:
-                if user == newuser:
-                    print("Logged in successfully!")
-                    return True
-                else:
-                    print("Incorrect username of password")
-                    return False
-                
-            
-        else:
-            print("Invalid input")
-            
-        while login_options:            
-            print("*"*50)
             print("Welcome to password locker. Login\n")
             print("Enter your username: \n")
             login_username = input()
@@ -173,7 +150,7 @@ def main():
                         break
                     
                     elif prompt_selection == "3":
-                        Credentials.display_credentials(Credentials.credentials)
+                        Credentials.display_credentials()
                     
                     elif prompt_selection == "4":
                         accountName = input("Enter username of the credential to delete: \n")
