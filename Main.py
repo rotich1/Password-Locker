@@ -80,6 +80,14 @@ class Credentials:
             print("Details in the account provided doesn't exist")
         else:
             print("No saved data yet")
+    
+    def deleteCredential(accountName):
+        """
+        This method will delete user credentials
+        """
+        for credential in Credentials.credentials:
+            if credential.username == accountName:
+                Credentials.credentials.remove(credential)
             
             
    
@@ -149,7 +157,9 @@ def main():
                     Credentials.display_credentials(Credentials.credentials)
                 
                 elif prompt_selection == "4":
-                    pass
+                    accountName = input("Enter username of the credential to delete: \n")
+                    Credentials.deleteCredential(accountName)
+                    print(f"Credential with username {accountName} deleted successfully")
                 
                 else:
                     print("Invalid selection")
