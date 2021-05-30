@@ -125,10 +125,9 @@ def main():
         
         print("Enter your password: \n")
         login_password = input()
-        
-        # if Credentials in Credentials.credentials:
-        for credential in Credentials.credentials:
-            if credential.username == login_username:
+        print(User.users)
+        for credential in User.users:
+            if credential.username == login_username and credential.password == login_password:
                 prompt_selection = input("Kindly select the option you would like to do using number:\n 1. Store already existing account credentials.\n 2. Create new account credentials.\n 3. View account credentials and passwords. \n 4. Delete account details.")
                             
                 if prompt_selection == "1":
