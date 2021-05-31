@@ -31,12 +31,14 @@ class User:
         print("Login successful")
         
     @classmethod
+        #Decorator for displaying users
     def displayUsers(self):
         for user in self.users:
             print(user)
         
     
     @classmethod
+    #decorator for deleting users
     def deleteUsers(self):
         User.users.remove(self) 
         
