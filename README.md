@@ -14,7 +14,16 @@ apt-get install pip3
 
 ## Running the application
 1. Cd to the project folder using terminal and run ./Main.py to run the app.
-| Behaviour                            |      Input      |                                         Output |
-| ------------------------------------ | :-------------: | ---------------------------------------------: |
-| Select cc |    Provide username, password and confirm password. Choose option 1 enter own password and option 2 for system generated password   |         If success, login input is displayed, else if passwords does not match, application prints 'Passwords does not match' |
-| Provide login credentials i.e username and password | username and password | 1. Store already existing account credentials. 2. Create new account credentials. 3. View account credentials and passwords.  4. Delete account details. 5. Exit|
+ 
+| Behaviour                            |      Input                       |                                         Output |
+| ------------------------------------ | :-------------:                  | ---------------------------------------------: |
+| Select cc                            | Provide username, password and 
+                                        confirm password. 
+                                        Choose option 
+                                        1 enter own password and option 
+                                        2 for system generated password   | If success, login input is displayed, 
+                                                                            else if passwords does not match, application prints 'Passwords does not match'               |
+| Provide login credentials 
+    i.e username and password          | username and password            | 1. Store already existing account credentials. 
+                                                                            1. Create new account credentials. 3. View account credentials and passwords.  4. Delete account details. 5. Exit                                 |
+|Select 1                              |username and password             |Credentials saved successfully                    |
