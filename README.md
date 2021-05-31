@@ -22,3 +22,8 @@ apt-get install pip3
 * Select option 3, the application will display the stored credentials.
 * Select option 4, the application will prompt user for username of the application to delete and prints "Credential with username username deleted successfully."
 * Select option 5, exist the application and prints "Bye, see you next time"
+
+## Build with 
+Python3.8
+
+[MIT](LICENSE)
